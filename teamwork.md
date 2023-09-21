@@ -5,17 +5,32 @@
 
 
 ### @Negar-Zaghi 
-teamwork contract - _communication_
+- [x] teamwork contract - _communication_
 ### @Khanhnguyen11620 
-Readme file
+- [x] Readme file
 ### @akim2000
-teamwork contract - _Timing_
+- [x] teamwork contract - _Timing_
 ### @Jacky-Yiu
-Troubleshooting
+- [x] Troubleshooting
 
 ------
 ## Timing :hourglass:
+When someone submits a pull request, we will have a designated person confirm the request and merge the branch.
+THe flow will look like this: Andy -> Jacky -> Negar -> Khanh -> Andy. Andy will confirm Jacky's pull requests, Jacky will confirm Negar's and so on. Since only Andy and Negar are working on the same file (teamwork.md), we will allow Negar to work on half of the part first then merge it to prevent any issues.
 
+Since we have designated people to confirm the request, we will mention them using the @mention feature shown below:
+````
+@Insert_Person
+````
+
+Here is a table summarizing if everyone managed to submit a pull request and confirm another persons pull request:
+
+Member | Pull request | Confirm pull request
+-------|--------------|---------------------
+Andy| Done | Done
+Jacky| Done | Done 
+Negar| Done | Done 
+Khanh| Done | Done 
 
 
 
