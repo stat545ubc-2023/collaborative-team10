@@ -36,6 +36,7 @@ Let's have a look at the dataset! My goal is to:
 class(dslabs::movielens)
 movieLens <- as_tibble(dslabs::movielens)
 dim(movielens) # change movieLens to movielens
+glimpse(movielens)
 ```
 
 Now that we've had a quick look at the dataset, it would be interesting to explore the rows (observations) in some more detail. I'd like to consider the movie entries that...
@@ -79,9 +80,10 @@ As you already know, `mutate()` defines and inserts new variables into a tibble.
 
 ```{r}
 ### ERROR HERE ### 
-mutate(movieLens,
-       average_rating = mean(rating),
-       .keep="none") # added .keep="none"
+movieLens %>%
+  group_by(title) %>%
+  summarize(avg_rating = mean(rating)) #change from mutate to summarize
+
 ```
 
 ## Exercise 3: Calculating with `summarise()`-like functions
