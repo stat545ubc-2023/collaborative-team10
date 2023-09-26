@@ -101,7 +101,7 @@ Without using `group_by()`, I want to find out how many movie reviews there have
 ```{r}
 ### ERROR HERE ###
 movieLens %>%
-  tally(year)
+  count(year) # I changed tally(year) to count(year)
 ```
 
 Both `count()` and `tally()` can be grouped by multiple columns. Below, I want to count the number of movie reviews by title and rating, and sort the results.
@@ -109,7 +109,7 @@ Both `count()` and `tally()` can be grouped by multiple columns. Below, I want t
 ```{r}
 ### ERROR HERE ###
 movieLens %>%
-  count(c(title, rating), sort = TRUE)
+  count(title, rating, sort = TRUE) #changed count(c(title, rating), sort = TRUE) to count(title, rating, sort = TRUE)
 ```
 
 Not only do `count()` and `tally()` quickly allow you to count items within your dataset, `add_tally()` and `add_count()` are handy shortcuts that add an additional columns to your tibble, rather than collapsing each group.
@@ -129,8 +129,10 @@ Using `summarize()`, we can find the minimum and the maximum rating by title, st
 ```{r}
 ### ERROR HERE ###
 movieLens %>%
-  mutate(min_rating = min(rating), 
+  group_by(title) %>%
+  summarize(min_rating = min(rating), 
          max_rating = max(rating))
+## added the group_by(title) and change mutate to summarize
 ```
 
 ## Exercise 5: Scoped variants with `across()`
@@ -154,7 +156,7 @@ We can find the minimum height and mass within each species, ignoring the missin
 ### ERROR HERE ###
 starWars %>%
   group_by(species) %>%
-  summarise(across("height", "mass", function(x) min(x, na.rm=TRUE)))
+  summarise(across(c("height", "mass"), function(x) min(x, na.rm=TRUE))) #added c() to select height and mass for the across function
 ```
 
 Note that here R has taken the convention that the minimum value of a set of `NA`s is `Inf`.
@@ -170,16 +172,16 @@ Manually create a tibble with 4 columns:
 ```{r}
 ### ERROR HERE ###
 fakeStarWars <- tribble(
-  ~name,            ~birth_weight,  ~birth_year, ~birth_location
-  "Luke Skywalker",  1.35      ,   1998        ,  Liverpool, England,
-  "C-3PO"         ,  1.80      ,   1999        ,  Liverpool, England,
-  "R2-D2"         ,  2.25      ,   2000        ,  Seattle, WA,
-  "Darth Vader"   ,  2.70      ,   2001        ,  Liverpool, England,
-  "Leia Organa"   ,  3.15      ,   2002        ,  New York, NY,
-  "Owen Lars"     ,  3.60      ,   2003        ,  Seattle, WA,
-  "Beru Whitesun Iars", 4.05   ,   2004        ,  Liverpool, England,
-  "R5-D4"         ,  4.50      ,   2005        ,  New York, NY,
-)
+  ~name,            ~birth_weight,  ~birth_year, ~birth_location, #added comma
+  "Luke Skywalker",  1.35      ,   1998        ,  "Liverpool, England",
+  "C-3PO"         ,  1.80      ,   1999        ,  "Liverpool, England",
+  "R2-D2"         ,  2.25      ,   2000        ,  "Seattle, WA",
+  "Darth Vader"   ,  2.70      ,   2001        ,  "Liverpool, England",
+  "Leia Organa"   ,  3.15      ,   2002        ,  "New York, NY",
+  "Owen Lars"     ,  3.60      ,   2003        ,  "Seattle, WA",
+  "Beru Whitesun Iars", 4.05   ,   2004        ,  "Liverpool, England",
+  "R5-D4"         ,  4.50      ,   2005        ,  "New York, NY",
+) #added quotation mark to birth locations
 ```
 
 ## Attributions
