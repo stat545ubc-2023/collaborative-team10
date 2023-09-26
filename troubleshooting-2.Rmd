@@ -16,9 +16,8 @@ Note that errors are not all syntactic (i.e., broken code)! Some are logical err
 [MovieLens](https://dl.acm.org/doi/10.1145/2827872) are a series of datasets widely used in education, that describe movie ratings from the MovieLens [website](https://movielens.org/). There are several MovieLens datasets, collected by the [GroupLens Research Project](https://grouplens.org/datasets/movielens/) at the University of Minnesota. Here, we load the MovieLens 100K dataset from Rafael Irizarry and Amy Gill's R package, [dslabs](https://cran.r-project.org/web/packages/dslabs/dslabs.pdf), which contains datasets useful for data analysis practice, homework, and projects in data science courses and workshops. We'll also load other required packages.
 
 ```{r}
-### ERROR HERE ###
-install.packages("dslab")
-library(dslabs)
+### ERROR HERE ### 
+library(dslabs) #change load.packeges to library
 library(tidyverse)
 library(stringr)
 install.packages("devtools") # Do not run this if you already have this package installed! 
@@ -36,7 +35,7 @@ Let's have a look at the dataset! My goal is to:
 ### ERROR HERE ###
 class(dslabs::movielens)
 movieLens <- as_tibble(dslabs::movielens)
-dim(movieLens)
+dim(movielens) # change movieLens to movielens
 ```
 
 Now that we've had a quick look at the dataset, it would be interesting to explore the rows (observations) in some more detail. I'd like to consider the movie entries that...
