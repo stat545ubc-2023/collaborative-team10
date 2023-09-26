@@ -12,6 +12,7 @@ This repository is for  milestone project 1 for STAT 545. There are three goals 
 1. TEAMWORK.md: The teamwork contract includes three aspects: Division of Labour, Timing and Communication
 2. troubleshooting-1.Rmd: This document is for fixing errors in exercise 6 of the project
 3. README.md: This document provides context and how-to instructions for the project
+4. troubleshooting-2.Rmd: This document is for fixing errors in exercise 1 for Milestone 2 of the project
 
 **___How to run the code in this repository___**
 
