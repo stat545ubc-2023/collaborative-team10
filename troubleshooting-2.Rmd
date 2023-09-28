@@ -80,9 +80,10 @@ As you already know, `mutate()` defines and inserts new variables into a tibble.
 
 ```{r}
 ### ERROR HERE ### 
-movieLens %>%
-  group_by(title) %>%
-  summarize(avg_rating = mean(rating)) #change from mutate to summarize
+
+mutate(movieLens,
+       average_rating = mean(rating),
+       .keep = "none" ) #added .keep = "none"
 
 ```
 
