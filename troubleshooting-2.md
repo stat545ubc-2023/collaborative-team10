@@ -84,13 +84,13 @@ class(dslabs::movielens)
 
 ``` r
 movieLens <- as_tibble(dslabs::movielens)
-dim(movielens) # change movieLens to movielens
+dim(movieLens)
 ```
 
     ## [1] 100004      7
 
 ``` r
-glimpse(movielens)
+glimpse(movieLens)#added glimpse
 ```
 
     ## Rows: 100,004
