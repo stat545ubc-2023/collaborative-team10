@@ -262,25 +262,26 @@ I forgot what that mystery function is. Can you remember?
 
 ``` r
 ### ERROR HERE ### 
-movieLens %>%
-  group_by(title) %>%
-  summarize(avg_rating = mean(rating)) #change from mutate to summarize
+
+mutate(movieLens,
+       average_rating = mean(rating),
+       .keep = "none" ) #added .keep = "none"
 ```
 
-    ## # A tibble: 8,832 × 2
-    ##    title                              avg_rating
-    ##    <chr>                                   <dbl>
-    ##  1 "\"Great Performances\" Cats"            1.75
-    ##  2 "$9.99"                                  3.83
-    ##  3 "'Hellboy': The Seeds of Creation"       2   
-    ##  4 "'Neath the Arizona Skies"               0.5 
-    ##  5 "'Round Midnight"                        2.25
-    ##  6 "'Salem's Lot"                           3.5 
-    ##  7 "'Til There Was You"                     2.62
-    ##  8 "'burbs, The"                            3.05
-    ##  9 "'night Mother"                          5   
-    ## 10 "(500) Days of Summer"                   3.76
-    ## # ℹ 8,822 more rows
+    ## # A tibble: 100,004 × 1
+    ##    average_rating
+    ##             <dbl>
+    ##  1           3.54
+    ##  2           3.54
+    ##  3           3.54
+    ##  4           3.54
+    ##  5           3.54
+    ##  6           3.54
+    ##  7           3.54
+    ##  8           3.54
+    ##  9           3.54
+    ## 10           3.54
+    ## # ℹ 99,994 more rows
 
 ## Exercise 3: Calculating with `summarise()`-like functions
 
